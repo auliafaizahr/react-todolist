@@ -1,0 +1,70 @@
+.App {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.full-height {
+  background-color: #e6e5e5;
+
+  .row {
+
+    .card {
+      background-color: #3A2755;
+      border: none;
+      border-radius: 1.5em;
+      padding: 2em 1em;
+
+      span {
+        text-align: center;
+        margin-bottom: 2em;
+        color: white;
+        font-weight: 700;
+        font-size: .7em;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .img_photo {
+        img {
+          width: 10em;
+          border-radius: 50%;
+        }
+      }
+
+      .card-body {
+        h4 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 800;
+          color: white;
+          font-size: 1.3em;
+        }
+
+        p {
+          color: white;
+          font-size: .7em;
+        }
+
+        .btn {
+          width: 100%;
+          color: white;
+          font-family: 'Montserrat', sans-serif;
+          font-size: .7em;
+          font-weight: 600;
+          border-radius: 1em;
+          margin-bottom: 2px;
+
+
+          &:hover {
+            background-color: #EC837F;
+          }
+
+          &.skips {
+
+          }
+        }
+
+        .btn-class {
+          margin: 4em 0 0;
+        }
+      }
+    }
+  }
+}
