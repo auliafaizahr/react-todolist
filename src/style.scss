@@ -22,6 +22,52 @@
         font-family: 'Montserrat', sans-serif;
       }
 
+      input {
+        border: none;
+        border-radius: 5px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: .7em;
+        padding: 1em;
+        font-weight: 600;
+        color: #3A2755;
+        border-left: 5px solid white;
+
+
+        &::placeholder{
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: .8em;
+          color: #3A2755;
+          padding: 5px;
+        }
+
+        &:focus{
+          border-left: 6px solid #EC837F;
+        }
+      }
+
+      .todo-list {
+        margin-top: 1em;
+
+        .box-list{
+          .list-thing{
+            background-color: white;
+            border-radius: 5px;
+            padding: 1em;
+            font-size: .7em;
+            font-family: 'Montserrat', sans-serif;
+
+          }
+        }
+      }
+
+      .btn-add {
+        color: white;
+        border-radius: 5px;
+        margin-left: 5px;
+        background-color: #EC837F;
+      }
+
       .img_photo {
         img {
           width: 10em;

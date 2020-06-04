@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PhotoComponent from './Component/PhotoComponent';
 import InfoComponent from './Component/InfoComponent';
+import Todo from './Component/Todo';
 import './App.scss';
 import List from './list';
 
@@ -14,8 +15,8 @@ export default class App extends Component {
       <div className="container-lg full-height vh-100 d-flex justify-content-center align-items-center ">
         <div className="row">
           <div className="card col-auto mx-auto">
-            <span>Reads</span>
-            <PhotoComponent />
+            <span>To Do List</span>
+            <Todo />
             <InfoComponent />
           </div>
         </div>
