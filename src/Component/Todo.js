@@ -27,13 +27,15 @@ class Todo extends Component {
     // console.log(this.state.tasks);
   }
 
-  handleCheck = (isChecked, index) => {
+  handleCheck = (i, e) => {
     this.setState({isChecked: true});
     // if (isChecked) {
     //   this.setState({isDisabled: true});
     // }
-    console.log(index);
-    console.log(this.state.tasks[index]);
+    console.log(i.isChecked);
+    console.log(e.index);
+    // console.log(index);
+    // console.log(this.state.tasks[index]);
   }
 
   handleDisable = (index) => {
@@ -105,7 +107,7 @@ const Things = (props) => {
         id=""
         checked= { props.checked }
         disabled = { props.disabled }
-        onChange = {(e) => (props.onCheck.bind({isChecked: e.target.checked}))}
+        onChange = {(e) => (props.onCheck({isChecked: e.target.checked}, {index: props.id}))}
           /><label></label>
       </span>
       <div className="list-thing col-7" contentEditable="false">
