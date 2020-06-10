@@ -17,7 +17,6 @@ export default class App extends Component {
           <div className="card col-auto mx-auto">
             <span>To Do List</span>
             <Todo />
-            <InfoComponent />
           </div>
         </div>
       </div>

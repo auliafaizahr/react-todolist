@@ -15,7 +15,7 @@
 
       span {
         text-align: center;
-        margin-bottom: 2em;
+        // margin-bottom: 2em;
         color: white;
         font-weight: 700;
         font-size: .7em;
@@ -50,13 +50,65 @@
         margin-top: 1em;
 
         .box-list{
+          margin-bottom: 5px;
+
+          .checkbox {
+            align-self: center;
+
+            // input[type="checkbox"]{
+            //   opacity: 0;
+            // }
+
+            // label {
+            //   margin: 0;
+            //   display: inline-block;
+            //   // position: ;
+            // }
+
+            // label::before, label::after {
+            //   position: absolute;
+            //   content: "";
+            //   display: inline-block;
+            // }
+
+            // label::before {
+            //   content: "";
+            //   display: inline-block;
+            //   border: 1px solid white;
+            //   height: 15px;
+            //   width: 15px;
+            //   padding: 1em;
+
+            //   left: 12px;
+            //   top: -5px;
+            // }
+
+            // label::after {
+            //   height: 6px;
+            //   width: 12px;
+            //   border-left: 2px solid white;
+            //   border-bottom: 2px solid white;
+
+            //   transform: rotate(-45deg);
+            //   left: 17px;
+            //   top: 3px;
+            // }
+
+            input[type="checkbox"] + label::after {
+              content: none;
+            }
+
+            input[type="checkbox"]::checked + label::after {
+              content: "";
+            }
+          }
+
           .list-thing{
             background-color: white;
             border-radius: 5px;
             padding: 1em;
             font-size: .7em;
             font-family: 'Montserrat', sans-serif;
-
           }
         }
       }
