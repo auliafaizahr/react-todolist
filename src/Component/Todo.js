@@ -5,9 +5,7 @@ class Todo extends Component {
     super(props);
 
     this.state = {
-      tasks: [],
-      isChecked: false,
-      isDisabled: false
+      tasks: []
     }
   }
 
@@ -23,33 +21,13 @@ class Todo extends Component {
     this.setState({tasks: newArr});
     console.log(index);
     console.log(this.props);
-    // console.log(this.props.tasks);
-    // console.log(this.state.tasks);
-  }
-
-  handleCheck = (i, e) => {
-    this.setState({isChecked: true});
-    // if (isChecked) {
-    //   this.setState({isDisabled: true});
-    // }
-    console.log(i.isChecked);
-    console.log(e.index);
-    // console.log(index);
-    // console.log(this.state.tasks[index]);
-  }
-
-  handleDisable = (index) => {
-    // this.setState({isDisabled: true});
-    // this.tasks[index].setState({isDisabled: true});
-    console.log(index);
-    console.log(this.tasks[index]);
   }
 
   render(){
     return(
       <div>
         <Input onFormSubmit={ this.submitList }/>
-        <TodoList tasks={this.state.tasks} onDelete={this.handleDelete} onCheck={this.handleCheck} onDisabled={this.handleDisable} isChecked={this.state.isChecked} isDisabled={this.state.isDisabled} />
+        <TodoList tasks={this.state.tasks} onDelete={this.handleDelete} />
       </div>
     );
   }
@@ -84,9 +62,12 @@ class Input extends Component {
 }
 
 const TodoList = (props) => {
-  // console.log(props);
+  console.log(props);
+  const isDisabled = false;
+  const isChecked = false;
+
   const todos = props.tasks.map((todo, index) => {
-    return <Things content={todo} key={index} id={index} onDelete={props.onDelete} onCheck={props.onCheck} checked={props.isChecked} disabled={props.isDisabled} />
+    return <Things content={todo} key={index} id={index} onDelete={props.onDelete} />
   })
 
   return(
@@ -96,26 +77,60 @@ const TodoList = (props) => {
   );
 }
 
-const Things = (props) => {
-  return(
-    <div className="box-list row">
-      <span className="col-2 checkbox">
-        <input
-        type="checkbox"
-        className="checkbox-light"
-        name=""
-        id=""
-        checked= { props.checked }
-        disabled = { props.disabled }
-        onChange = {(e) => (props.onCheck({isChecked: e.target.checked}, {index: props.id}))}
-          /><label></label>
-      </span>
-      <div className="list-thing col-7" contentEditable="false">
-        {props.content}
+class Things extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      isChecked: false,
+      isDisabled: false,
+      isEditable: true,
+      isDeletable: false
+    }
+  }
+
+  handleCheck = (a, b) => {
+    if (!this.state.isChecked) {
+      this.setState({isChecked: true});
+      this.setState({isDisabled: true});
+      this.setState({isEditable: false});
+      this.setState({isDeletable: true});
+    }
+
+    console.log(b.index);
+    console.log(this.state)
+  }
+
+  render(){
+    return(
+      <div className="box-list row">
+        <span className="col-2 checkbox">
+          <input
+          type="checkbox"
+          className="checkbox-light"
+          name=""
+          id= {this.props.id}
+          checked= { this.state.isChecked }
+          disabled = { this.state.isDisabled }
+          onChange = {(e) => (this.handleCheck({isChecked: e.target.checked}, {index: this.props.id}))}
+            /><label></label>
+        </span>
+        <div
+          className="list-thing col-7"
+          contentEditable={ this.state.isEditable }
+          id = { this.props.id }
+        >
+          {this.props.content}
+        </div>
+        <button
+          type="submit"
+          className="btn btn-add"
+          disabled={ this.state.isDeletable }
+          onClick={() => {this.props.onDelete(this.props.id)}}
+          >x</button>
       </div>
-      <button type="submit" className="btn btn-add" onClick={() => {props.onDelete(props.id)}}>x</button>
-    </div>
-  );
+    );
+  }
 }
 
 class List extends Component {
