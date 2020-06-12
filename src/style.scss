@@ -109,6 +109,11 @@
             padding: 1em;
             font-size: .7em;
             font-family: 'Montserrat', sans-serif;
+
+            &.disable {
+              background-color: #7c9e8e;
+              text-decoration-line: line-through;
+            }
           }
         }
       }

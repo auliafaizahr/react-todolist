@@ -85,7 +85,8 @@ class Things extends Component {
       isChecked: false,
       isDisabled: false,
       isEditable: true,
-      isDeletable: false
+      isDeletable: false,
+      styleDisabled: null
     }
   }
 
@@ -95,6 +96,7 @@ class Things extends Component {
       this.setState({isDisabled: true});
       this.setState({isEditable: false});
       this.setState({isDeletable: true});
+      this.setState({styleDisabled: "disable"});
     }
 
     console.log(b.index);
@@ -116,7 +118,7 @@ class Things extends Component {
             /><label></label>
         </span>
         <div
-          className="list-thing col-7"
+          className={ "list-thing col-7 " + this.state.styleDisabled }
           contentEditable={ this.state.isEditable }
           id = { this.props.id }
         >
